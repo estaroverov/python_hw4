@@ -40,3 +40,27 @@ def FactorDecompos(number):
 
 
 print(FactorDecompos(1978))
+
+numbers = list(map(int, input("Введите список чисел через пробел: ").split()))
+
+
+def ListUnique(numbers):
+    copy = False
+    i = 0
+    j = 0
+    totalList = []
+    while i < len(numbers):
+        copy = False
+        j = 0
+        while j < len(numbers):
+            if numbers[i] == numbers[j] and i != j:
+                copy = True
+                break
+            j += 1
+        if copy == False:
+            totalList.append(numbers[i])
+        i += 1
+    return totalList
+
+
+print(ListUnique(numbers))
