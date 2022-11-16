@@ -1,7 +1,7 @@
 import math
 import random
 
-
+# Вычислить число c заданной точностью d
 def AccuracyCalc(number, accuracy, accuracyList=[10**(-1*i) for i in range(1, 11)]):
     counter = 0
     if accuracy in accuracyList:
@@ -15,7 +15,8 @@ def AccuracyCalc(number, accuracy, accuracyList=[10**(-1*i) for i in range(1, 11
 
 print(AccuracyCalc(math.pi, 0.01))
 
-
+# Задайте натуральное число N. Напишите программу,
+# которая составит список простых множителей числа N.
 def FactorDecompos(number):
     counter = 2
     i = 2
@@ -44,7 +45,8 @@ print(FactorDecompos(1978))
 
 numbers = list(map(int, input("Введите список чисел через пробел: ").split()))
 
-
+#Задайте последовательность чисел. Напишите программу, 
+# которая выведет список неповторяющихся элементов исходной последовательности.
 def ListUnique(numbers):
     copy = False
     i = 0
@@ -70,7 +72,8 @@ print(ListUnique(numbers))
 f = open('polynom.txt', 'w')
 f2 = open('polynom2.txt', 'w')
 
-
+#Задана натуральная степень k. Сформировать случайным образом список коэффициентов
+#  (значения от 0 до 100) многочлена и записать в файл многочлен степени k.
 def SetPolynom(k):
     i = 0
     polynomStr = ""
@@ -91,10 +94,12 @@ f = open("polynom.txt", "r")
 f2 = open("polynom2.txt", "r")
 polynom1 = f.read()
 polynom2 = f2.read()
-print(polynom1,polynom2)
 f.close
 f2.close
 
+#Даны два файла, 
+# в каждом из которых находится запись многочлена. 
+# Задача - сформировать файл, содержащий сумму многочленов.
 def PolynomSum(polynom1, polynom2):
     i = 0
     totalPoly = []
@@ -104,17 +109,17 @@ def PolynomSum(polynom1, polynom2):
     polynom2 = polynom2.split("\n")
     length = len(polynom1)
     while i < length:
-        if polynom2[i] != '' and polynom1[i]!='':
+        if polynom2[i] != '' and polynom1[i] != '':
             sum = int(polynom1[i]) + int(polynom2[i])
         else:
-            i+=1
+            i += 1
             continue
-        print(sum)
         totalPoly.append(sum)
-        i+=1
+        i += 1
     for i in totalPoly:
-        totalStr+=str(i) + "\n"
+        totalStr += str(i) + "\n"
     return totalStr
+
 
 f = open("total_polynom.txt", "w")
 f.write(PolynomSum(polynom1, polynom2))
