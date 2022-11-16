@@ -1,4 +1,5 @@
 import math
+import random
 
 
 def AccuracyCalc(number, accuracy, accuracyList=[10**(-1*i) for i in range(1, 11)]):
@@ -64,3 +65,57 @@ def ListUnique(numbers):
 
 
 print(ListUnique(numbers))
+
+
+f = open('polynom.txt', 'w')
+f2 = open('polynom2.txt', 'w')
+
+
+def SetPolynom(k):
+    i = 0
+    polynomStr = ""
+    while k >= i:
+        c = str(random.randint(0, 100))
+        polynomStr += c+"\n"
+        k -= 1
+    return polynomStr
+
+
+f.write(SetPolynom(2))
+f2.write(SetPolynom(2))
+f.close
+f2.close
+
+
+f = open("polynom.txt", "r")
+f2 = open("polynom2.txt", "r")
+polynom1 = f.read()
+polynom2 = f2.read()
+print(polynom1,polynom2)
+f.close
+f2.close
+
+def PolynomSum(polynom1, polynom2):
+    i = 0
+    totalPoly = []
+    totalStr = ""
+    sum = 0
+    polynom1 = polynom1.split("\n")
+    polynom2 = polynom2.split("\n")
+    length = len(polynom1)
+    while i < length:
+        if polynom2[i] != '' and polynom1[i]!='':
+            sum = int(polynom1[i]) + int(polynom2[i])
+        else:
+            i+=1
+            continue
+        print(sum)
+        totalPoly.append(sum)
+        i+=1
+    for i in totalPoly:
+        totalStr+=str(i) + "\n"
+    return totalStr
+
+f = open("total_polynom.txt", "w")
+f.write(PolynomSum(polynom1, polynom2))
+f.close
